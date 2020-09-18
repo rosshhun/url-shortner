@@ -48,7 +48,8 @@ if(!empty($url_to_shorten) && preg_match('|^https?://|', $url_to_shorten)) {
 		$shortened_url = getShortenedURLFromID(mysqli_insert_id($conn));
 		mysqli_query($conn, 'UNLOCK TABLES');
 	}
-	echo BASE_HREF . $shortened_url;
+	// echo BASE_HREF . $shortened_url;
+	header("Location:../index.php");
 }
 
 function getShortenedURLFromID ($integer, $base = ALLOWED_CHARS)
